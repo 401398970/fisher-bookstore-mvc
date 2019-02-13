@@ -1,4 +1,5 @@
 using System;
+using Fisher.Bookstore.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fisher.Bookstore.Controllers
@@ -11,7 +12,13 @@ namespace Fisher.Bookstore.Controllers
         } 
         public IActionResult Featured()
         {
-           return View();
-        }        
+           // we would normally get this from a database
+           var featuredAuthor = new Author()
+           {
+                AuthorId = 1,
+                Name = "Fuheng Jiang" 
+           };
+            return View(featuredAuthor);
+        }
     }
 }           
